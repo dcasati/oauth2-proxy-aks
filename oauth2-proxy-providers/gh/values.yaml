@@ -1,0 +1,21 @@
+config:
+  existingSecret: oauth2-proxy-creds
+
+extraArgs:
+  whitelist-domain: .int.mydomain.com
+  cookie-domain: .int.mydomain.com
+  provider: github
+  github-org: "MyGitHubOrg" 
+
+ingress:
+  enabled: true
+  path: /
+  hosts:
+    - auth.int.mydomain.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  tls:
+    - secretName: oauth2-proxy-https-cert
+      hosts:
+        - auth.int.mydomain.com
