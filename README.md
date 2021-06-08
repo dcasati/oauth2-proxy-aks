@@ -50,7 +50,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: diego.casati@microsoft.com
+    email: diego@labzilla.org
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
